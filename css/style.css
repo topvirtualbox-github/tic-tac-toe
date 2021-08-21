@@ -65,6 +65,11 @@ main {
 .box {
     background-color: #fff;
     cursor: pointer;
+    color: #000;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .box:hover {
