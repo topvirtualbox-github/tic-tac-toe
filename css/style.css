@@ -67,6 +67,7 @@ main {
     cursor: pointer;
     color: #000;
     font-size: 5rem;
+    user-select: none;
     display: flex;
     justify-content: center;
     align-items: center;
