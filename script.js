@@ -17,8 +17,24 @@ const GAME = (() => {
         [2, 4, 6]
     ];
 
+    // Event listeners
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach((box, index) => {
+        box.addEventListener("click", () => {
+            if (status && board[index] === "") {
+                board[index] = player;
+                box.textContent = player;
+                checkStatus();
+                if (player === "X") { player = "O"; }
+                else { player = "X"; }
+            }
+        });
+    });
+    const reset = document.querySelector(".btn-reset");
+    reset.addEventListener("click", resetGame);
+
     // Check if game has ended
-    const checkStatus = () => {
+    function checkStatus() {
         for (let i = 0; i < wins.length; i++) {
             const win = wins[i];
             const a = board[win[0]];
@@ -33,18 +49,12 @@ const GAME = (() => {
         if (status && !board.includes("")) { alert("TIE"); }
     }
 
-    // Add event listener to each box
-    const boxes = document.querySelectorAll(".box");
-    boxes.forEach((box, index) => {
-        box.addEventListener("click", () => {
-            if (status && board[index] === "") {
-                board[index] = player;
-                box.textContent = player;
-                checkStatus();
-                if (player === "X") { player = "O"; }
-                else { player = "X"; }
-            }
-        });
-    });
+    // Reset everything to default values
+    function resetGame() {
+        board = ["", "", "", "", "", "", "", "", ""];
+        player = "X";
+        status = true;
+        boxes.forEach(box => { box.textContent = ""; });
+    }
 
 })();
