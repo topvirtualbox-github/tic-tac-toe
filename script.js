@@ -4,8 +4,11 @@ const GAME = (() => {
 
     const player1 = { name: "P1", mark: "X" };
     const player2 = { name: "P2", mark: "O" };
+    const player3 = { name: "AI", mark: "O" };
 
     let current = player1;
+
+    let versus = player3;
 
     let status = false;
 
@@ -15,12 +18,12 @@ const GAME = (() => {
 
     boxes.forEach((box, index) => {
         box.addEventListener("click", () => {
-            if (status && board[index] === "") {
-                board[index] = current.mark;
-                box.textContent = current.mark;
-                checkStatus();
-                switchPlayer();
-            }
+            if (!status || board[index] !== "") return;
+            board[index] = current.mark;
+            box.textContent = current.mark;
+            checkStatus();
+            switchPlayer();
+            if (versus === player3) { playAI(); }
         });
     });
 
@@ -65,8 +68,21 @@ const GAME = (() => {
     // Switch current player
     function switchPlayer() {
         if (!status) return;
-        if (current === player1) { current = player2; }
+        if (current === player1) { current = versus; }
         else { current = player1; }
+    }
+
+    // Pick a move for the AI
+    function playAI() {
+        if (!status) return;
+        let random = Math.floor(Math.random() * board.length);
+        while (board[random] !== "") {
+            random = Math.floor(Math.random() * board.length);
+        }
+        board[random] = current.mark;
+        boxes[random].textContent = current.mark;
+        checkStatus();
+        switchPlayer();
     }
 
 })();
