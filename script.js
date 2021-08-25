@@ -4,7 +4,7 @@ const GAME = (() => {
 
     let player = "X";
 
-    let status = true;
+    let status = false;
 
     const wins = [
         [0, 1, 2],
@@ -31,7 +31,10 @@ const GAME = (() => {
         });
     });
     const reset = document.querySelector(".btn-reset");
-    reset.addEventListener("click", resetGame);
+    reset.addEventListener("click", () => {
+        reset.textContent = "RESET";
+        resetGame();
+    });
 
     // Check if game has ended
     function checkStatus() {

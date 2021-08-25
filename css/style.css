@@ -12,42 +12,26 @@ body {
     min-height: 100vh;
     background-color: #111;
     font-family: "Montserrat", sans-serif;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-/* ==========
-    HEADER
-========== */
-
-header {
-    width: 500px;
-    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-header h1 {
-    font-size: 3rem;
-    font-weight: 500;
-}
-
 /* ==========
-    MAIN
+    LAYOUT
 ========== */
 
-main {
-    width: 500px;
-    height: 575px;
+.container {
+    width: 90%;
+    max-width: 500px;
+    min-height: 575px;
+    padding: 25px;
     background-color: #eee;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 .board {
@@ -63,7 +47,6 @@ main {
 
 .box {
     background-color: #fff;
-    color: #000;
     font-size: 5rem;
     cursor: pointer;
     user-select: none;
@@ -76,32 +59,9 @@ main {
     background-color: #eee;
 }
 
-/* ==========
-    FOOTER
-========== */
-
-footer {
-    width: 500px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-footer a {
-    margin-left: 5px;
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-/* ==========
-    BUTTONS
-========== */
-
 .btn {
+    width: 100px;
     height: 50px;
-    padding: 0 1rem;
     background-color: transparent;
     font-size: 1.2rem;
     border: 1px solid #999;
@@ -110,4 +70,12 @@ footer a {
 
 .btn:hover {
     background-color: #ddd;
+}
+
+.github {
+    color: #000;
+    text-decoration: none;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }
