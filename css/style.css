@@ -22,13 +22,12 @@ body {
 ========== */
 
 .container {
-    width: 90%;
-    max-width: 500px;
-    min-height: 650px;
-    padding: 25px;
+    width: 95%;
+    max-width: 440px;
+    padding: 20px;
     background-color: #eee;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
@@ -50,8 +49,9 @@ body {
 }
 
 .board {
-    width: 450px;
-    height: 450px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin: 20px 0;
     background-color: #999;
     border: 1px solid #999;
     display: grid;
@@ -75,8 +75,8 @@ body {
 }
 
 .btn {
-    width: 100px;
-    height: 50px;
+    width: 90px;
+    min-height: 40px;
     background-color: transparent;
     font-size: 1.2rem;
     border: 1px solid #999;
@@ -89,8 +89,22 @@ body {
 
 .github {
     color: #000;
+    font-size: 0.8rem;
     text-decoration: none;
     position: absolute;
     bottom: 5px;
     right: 5px;
+}
+
+/* ==========
+    MEDIA
+========== */
+
+@media (max-width: 350px) {
+    .container { padding: 15px; }
+    .display { font-size: 0.9rem; }
+    .board { margin: 15px 0; }
+    .box { font-size: 4rem; }
+    .btn { width: 80px; min-height: 35px; font-size: 0.9rem; }
+    .github { font-size: 0.7rem; }
 }
