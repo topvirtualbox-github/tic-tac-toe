@@ -34,13 +34,19 @@ body {
     position: relative;
 }
 
-.display {
+.top {
     width: 100%;
-    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.display {
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
 }
 
 .board {
